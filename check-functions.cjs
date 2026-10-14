@@ -1,0 +1,18 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const noop=()=>{};const node=()=>({classList:{contains:()=>false,toggle:noop,remove:noop,add:noop},setAttribute:noop,addEventListener:noop,getAttribute:()=>null,focus:noop});
+const map={'.menu-toggle':node(),'#navigation':node(),'.header':node(),'.toast':node()};
+let memory={};const context={console,Set,URLSearchParams,URL,Blob,setTimeout,clearTimeout,localStorage:{getItem:k=>memory[k]||null,setItem:(k,v)=>memory[k]=v},location:{search:'',href:'https://example.test/'},document:{querySelector:q=>map[q]||null,querySelectorAll:()=>[],addEventListener:noop},window:{addEventListener:noop,scrollY:0},matchMedia:()=>({matches:true}),requestAnimationFrame:noop};
+vm.createContext(context);vm.runInContext(fs.readFileSync(require('path').join(__dirname,'assets/app.js'),'utf8'),context);
+const run=s=>vm.runInContext(s,context);const arr=s=>Array.from(run(s));
+assert.equal(run("filterMachines(catalogIds,'Alle','',false,new Set()).length"),6);
+assert.deepEqual(arr("filterMachines(catalogIds,'Bau','',false,new Set())"),['radlader','kompaktbagger']);
+assert.deepEqual(arr("filterMachines(catalogIds,'Garten','Rasenmäher',false,new Set())"),['aufsitzmaeher']);
+assert.deepEqual(arr("filterMachines(catalogIds,'Agrar','silo',false,new Set())"),['silobehaelter']);
+assert.deepEqual(arr("filterMachines(catalogIds,'Alle','strohmuhle',false,new Set())"),['strohmuehle']);
+assert.equal(run("filterMachines(catalogIds,'Alle','nichtvorhanden',false,new Set()).length"),0);
+assert.deepEqual(arr("filterMachines(catalogIds,'Alle','',true,new Set(['traktor','radlader']))"),['radlader','traktor']);
+assert.equal(run("filterMachines(catalogIds,'Garten','',true,new Set(['traktor'])).length"),0);
+memory['barthelmess-merkliste-v1']='["radlader","invalid","radlader"]';assert.equal(run('readSaved().size'),1);
+memory['barthelmess-merkliste-v1']='null';assert.equal(run('readSaved().size'),0);
+memory['barthelmess-merkliste-v1']='broken';assert.equal(run('readSaved().size'),0);
+console.log('PASS: 11 checks covering search, umlauts, categories, shortlist intersection, empty states and damaged storage');

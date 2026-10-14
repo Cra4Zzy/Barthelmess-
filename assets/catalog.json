@@ -1,0 +1,98 @@
+[
+  {
+    "id": "radlader",
+    "name": "Radlader",
+    "sub": "Wenn aus viel Arbeit Fortschritt wird.",
+    "cat": "Bau",
+    "image": "hero",
+    "type": "Radlader",
+    "drive": "Diesel / Allrad",
+    "use": "Erdbewegung & Materialumschlag",
+    "features": [
+      "Großvolumige Ladeschaufel",
+      "Geschlossene Fahrerkabine",
+      "Robustes Fahrwerk"
+    ],
+    "label": "Kraftvoll anpacken"
+  },
+  {
+    "id": "kompaktbagger",
+    "name": "Kompaktbagger",
+    "sub": "Große Möglichkeiten. Kompakte Abmessungen.",
+    "cat": "Bau",
+    "image": "excavator",
+    "type": "Kettenbagger",
+    "drive": "Diesel / Kette",
+    "use": "Erdarbeiten & Landschaftsbau",
+    "features": [
+      "Kompakte Bauweise",
+      "Kettenlaufwerk",
+      "Vielseitiger Grabarm"
+    ],
+    "label": "Präzise arbeiten"
+  },
+  {
+    "id": "traktor",
+    "name": "Agrartraktor",
+    "sub": "Bereit für die Aufgaben auf Ihrem Hof.",
+    "cat": "Agrar",
+    "image": "tractor",
+    "type": "Traktor",
+    "drive": "Diesel / Allrad",
+    "use": "Landwirtschaft & Transport",
+    "features": [
+      "Geschlossene Kabine",
+      "Groß dimensionierte Bereifung",
+      "Vielseitige Einsatzbereiche"
+    ],
+    "label": "Vielseitig einsetzen"
+  },
+  {
+    "id": "aufsitzmaeher",
+    "name": "Aufsitzmäher",
+    "sub": "Gepflegte Flächen. Entspannt gemacht.",
+    "cat": "Garten",
+    "image": "garden",
+    "type": "Aufsitzmäher",
+    "drive": "Motorisiert",
+    "use": "Grünflächen & Grundstückspflege",
+    "features": [
+      "Komfortabler Fahrersitz",
+      "Breites Mähdeck",
+      "Kompakte Abmessungen"
+    ],
+    "label": "Flächen meistern"
+  },
+  {
+    "id": "silobehaelter",
+    "name": "Mobiler Silobehälter",
+    "sub": "Lagerung dort, wo sie gebraucht wird.",
+    "cat": "Agrar",
+    "image": "silo",
+    "type": "Lagersilo",
+    "drive": "Ohne Antrieb",
+    "use": "Saatgut & Schüttgut",
+    "features": [
+      "Stabiler Tragrahmen",
+      "Konischer Behälter",
+      "Auslass an der Unterseite"
+    ],
+    "label": "Durchdacht lagern"
+  },
+  {
+    "id": "strohmuehle",
+    "name": "Strohmühle",
+    "sub": "Praktische Technik für den Hofalltag.",
+    "cat": "Agrar",
+    "image": "straw",
+    "type": "Strohverarbeitung",
+    "drive": "Elektrisch",
+    "use": "Strohaufbereitung",
+    "features": [
+      "Einfülltrichter",
+      "Auswurfkanal",
+      "Fahrbares Gestell"
+    ],
+    "label": "Effizient aufbereiten"
+  }
+]
